@@ -18,6 +18,7 @@ namespace VehiclesApi.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultContainer("VehiclesContainer");
+            modelBuilder.Entity<Vehicle>().HasKey("Id");
         }
     }
 }

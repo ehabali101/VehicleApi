@@ -53,22 +53,19 @@ namespace VehiclesApi.Controllers
 
         // PUT: api/Vehicles/5
         [HttpPut("{id}")]
-        public async Task<ActionResult<VehicleResource>> PutVehicle(string id, VehicleResource vehicle)
+        public async Task<ActionResult> PutVehicle(string id, [FromBody]VehicleResource vehicle)
         {
             if (id != vehicle.Id)
             {
                 return BadRequest();
             }
 
-            if (!_unitOfWork.Vehicles.VehicleExists(id))
-            {
-                return NotFound();
-            }
+            await _unitOfWork.UpdateVehicle(_mapper.Map<Vehicle>(vehicle));
+            //await _unitOfWork.Vehicles.UpdateVehicleStatus(id, _mapper.Map<Vehicle>(vehicle));
+            //await _unitOfWork.Complete();
 
-            await _unitOfWork.Vehicles.UpdateVehicleStatus(id, _mapper.Map<Vehicle>(vehicle));
-            await _unitOfWork.Complete();
-
-            return Ok(_mapper.Map< VehicleResource>(vehicle));
+            //return Ok(_mapper.Map< VehicleResource>(vehicle));
+            return Ok();
         }
 
         // GET: api/Vehicles/Owners

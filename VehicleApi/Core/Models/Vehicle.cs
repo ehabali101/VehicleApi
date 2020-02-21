@@ -8,7 +8,7 @@ namespace VehiclesApi.Core.Models
 {
     public class Vehicle
     {
-        [JsonProperty(PropertyName = "id")]
+        //[JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         [JsonProperty(PropertyName = "status")]

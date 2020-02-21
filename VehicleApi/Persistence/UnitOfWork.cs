@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,10 +38,10 @@ namespace VehiclesApi.Persistence
             {
                 new Vehicle{ Id= "YS2R4X20005399401", Status = VehicleStatus.Disconnected },
                 new Vehicle{ Id= "VLUR4X20009093588", Status = VehicleStatus.Disconnected },
-                new Vehicle{ Id= "VLUR4X20009048066", Status = VehicleStatus.Disconnected },
-                new Vehicle{ Id= "YS2R4X20005388011", Status = VehicleStatus.Disconnected },
+                new Vehicle{ Id= "VLUR4X20009048066", Status = VehicleStatus.Connected },
+                new Vehicle{ Id= "YS2R4X20005388011", Status = VehicleStatus.Connected },
                 new Vehicle{ Id= "YS2R4X20005387949", Status = VehicleStatus.Disconnected },
-                new Vehicle{ Id= "YS2R4X20005387055", Status = VehicleStatus.Disconnected }
+                new Vehicle{ Id= "YS2R4X20005387055", Status = VehicleStatus.Connected }
             };
             _context.Vehicles.AddRange(vehicles);
 
@@ -58,6 +59,14 @@ namespace VehiclesApi.Persistence
             _context.VehicleOwners.AddRange(owners);
 
             await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateVehicle(Vehicle vehicle)
+        {
+            var item = await _context.Vehicles.Where(i => i.Id.Equals(vehicle.Id)).FirstOrDefaultAsync();
+            item.Status = vehicle.Status;
+            _context.Update(item);
+            await _context.SaveChangesAsync(true);
         }
 
         public async Task Complete()

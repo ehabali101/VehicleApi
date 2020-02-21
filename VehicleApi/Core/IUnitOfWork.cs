@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using VehiclesApi.Core.Models;
 using VehiclesApi.Core.Repositories;
 
 namespace VehiclesApi.Core
@@ -13,6 +14,8 @@ namespace VehiclesApi.Core
         IVehicleRepository Vehicles { get; }
 
         IVehicleOwnersRepository VehicleOwners { get; }
+
+        Task UpdateVehicle(Vehicle vehicle);
 
         Task Complete();
     }
