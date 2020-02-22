@@ -22,5 +22,9 @@
     <ProjectReference Include="..\VehicleResources\VehicleResources.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="manifests\" />
+  </ItemGroup>
+
 
 </Project>

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicleapi-deployemnt
+spec:
+  selector:
+    matchLabels:
+      app: vehicleapi-pod
+  template:
+    metadata:
+      labels:
+        app: vehicleapi-pod
+    spec:
+      containers:
+      - name: vehicleapi-container
+        image: vehicle.azurecr.io/vehicleapi:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
