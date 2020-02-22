@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: vehicleapi-container
-        image: vehicle.azurecr.io/vehicleapi:latest
+        image: vehicle.azurecr.io/vehicleapi:v1
         resources:
           limits:
             memory: "128Mi"
