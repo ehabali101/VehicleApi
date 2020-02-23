@@ -10,7 +10,7 @@ variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '234f194e-1e3a-452a-8eeb-ec6cf5fce21a'
   imageRepository: 'vehicleapi'
-  containerRegistry: 'vehicle.azurecr.io'
+  containerRegistry: 'vehiclecontainers.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildNumber)'
 
