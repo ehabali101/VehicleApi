@@ -48,13 +48,13 @@ namespace VehiclesApi.Persistence
             // to add vehicles to Vehicle Owners
             var owners = new List<VehicleOwners>()
             {
-                new VehicleOwners{ Id = "001", CustomerId = new Guid("9497219c-d4d1-4bfb-97bd-83fc86e8c094"), VehicleId = "YS2R4X20005399401", RegistrationNumber = "ABC123" },
-                new VehicleOwners{ Id = "002", CustomerId = new Guid("9497219c-d4d1-4bfb-97bd-83fc86e8c094"), VehicleId = "VLUR4X20009093588", RegistrationNumber = "DEF456" },
-                new VehicleOwners{ Id = "003", CustomerId = new Guid("9497219c-d4d1-4bfb-97bd-83fc86e8c094"), VehicleId = "VLUR4X20009048066", RegistrationNumber = "GHI789" },
-                new VehicleOwners{ Id = "004", CustomerId = new Guid("b10d01ca-42de-4318-9788-8672046b4c65"), VehicleId = "YS2R4X20005388011", RegistrationNumber = "JKL012" },
-                new VehicleOwners{ Id = "005", CustomerId = new Guid("b10d01ca-42de-4318-9788-8672046b4c65"), VehicleId = "YS2R4X20005387949", RegistrationNumber = "MNO345" },
-                new VehicleOwners{ Id = "006", CustomerId = new Guid("5cc5b374-4674-4985-ae70-9c1e8735d165"), VehicleId = "VLUR4X20009048066", RegistrationNumber = "PQR678" },
-                new VehicleOwners{ Id = "007", CustomerId = new Guid("5cc5b374-4674-4985-ae70-9c1e8735d165"), VehicleId = "YS2R4X20005387055", RegistrationNumber = "STU901" },
+                new VehicleOwners{ Id = "001", CustomerId = new Guid("e5e133d6-b245-4ced-bde3-e047888de611"), VehicleId = "YS2R4X20005399401", RegistrationNumber = "ABC123" },
+                new VehicleOwners{ Id = "002", CustomerId = new Guid("e5e133d6-b245-4ced-bde3-e047888de611"), VehicleId = "VLUR4X20009093588", RegistrationNumber = "DEF456" },
+                new VehicleOwners{ Id = "003", CustomerId = new Guid("e5e133d6-b245-4ced-bde3-e047888de611"), VehicleId = "VLUR4X20009048066", RegistrationNumber = "GHI789" },
+                new VehicleOwners{ Id = "004", CustomerId = new Guid("91725592-44ff-4b58-ad30-5fd1e6933a42"), VehicleId = "YS2R4X20005388011", RegistrationNumber = "JKL012" },
+                new VehicleOwners{ Id = "005", CustomerId = new Guid("91725592-44ff-4b58-ad30-5fd1e6933a42"), VehicleId = "YS2R4X20005387949", RegistrationNumber = "MNO345" },
+                new VehicleOwners{ Id = "006", CustomerId = new Guid("3679d5bf-5314-4b47-8187-373151dc22ea"), VehicleId = "VLUR4X20009048066", RegistrationNumber = "PQR678" },
+                new VehicleOwners{ Id = "007", CustomerId = new Guid("3679d5bf-5314-4b47-8187-373151dc22ea"), VehicleId = "YS2R4X20005387055", RegistrationNumber = "STU901" },
             };
             _context.VehicleOwners.AddRange(owners);
 
