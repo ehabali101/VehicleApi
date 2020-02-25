@@ -92,19 +92,21 @@ namespace VehicleApi.Tests.Controllers
             Assert.IsType<BadRequestResult>(result);
         }
 
-
         [Fact]
-        public async Task PutVehicle_WhenCalled_ReturnsOkResult()
+        public async Task PutVehicle_WhenCalled_ReturnsNotFound()
         {
             // Arrange
             var id = "ab2bd817";
+            Vehicle vehicle = null;
+            _mockVehicleRepository.Setup(repo => repo.UpdateVehicleStatus(new Vehicle { Id = id }))
+                .ReturnsAsync(vehicle);
 
             // Act
             var result = await _controller.PutVehicle(id, new VehicleResource { Id = id });
-            
+
             // Assert
             Assert.NotNull(result);
-            Assert.IsType<OkResult>(result);
+            Assert.IsType<NotFoundResult>(result);
         }
 
         [Fact]

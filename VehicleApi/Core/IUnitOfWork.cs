@@ -15,7 +15,7 @@ namespace VehiclesApi.Core
 
         IVehicleOwnersRepository VehicleOwners { get; }
 
-        Task UpdateVehicle(Vehicle vehicle);
+        void Update(object entity);
 
         Task Complete();
     }

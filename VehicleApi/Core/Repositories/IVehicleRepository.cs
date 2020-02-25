@@ -12,8 +12,7 @@ namespace VehiclesApi.Core.Repositories
 
         Task<Vehicle> GetVehicleAsync(string id);
 
-        //Task UpdateVehicleStatus(string id, Vehicle vehicle);
+        Task<Vehicle> UpdateVehicleStatus(Vehicle vehicle);
 
-        //bool VehicleExists(string id);
     }
 }

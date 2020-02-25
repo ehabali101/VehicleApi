@@ -26,15 +26,15 @@ namespace VehiclesApi.Persistence.Repositories
             return await _context.Vehicles.FindAsync(id);
         }
 
-        //public async Task UpdateVehicleStatus(string id, Vehicle vehicle)
-        //{
-        //    var dbVehicle = await _context.Vehicles.Where(i => i.Id.Equals(vehicle.Id)).FirstOrDefaultAsync();
-        //    dbVehicle.Status = vehicle.Status;
-        //}
-
-        public bool VehicleExists(string id)
+        public async Task<Vehicle> UpdateVehicleStatus(Vehicle vehicle)
         {
-            return _context.Vehicles.Any(e => e.Id == id);
+            var dbVehicle = await _context.Vehicles.Where(i => i.Id.Equals(vehicle.Id)).FirstOrDefaultAsync();
+            
+            if(dbVehicle != null)
+                dbVehicle.Status = vehicle.Status;
+
+            return dbVehicle;
         }
+
     }
 }

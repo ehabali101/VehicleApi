@@ -61,17 +61,14 @@ namespace VehiclesApi.Persistence
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateVehicle(Vehicle vehicle)
+        public void Update(object entity)
         {
-            var item = await _context.Vehicles.Where(i => i.Id.Equals(vehicle.Id)).FirstOrDefaultAsync();
-            item.Status = vehicle.Status;
-            _context.Update(item);
-            await _context.SaveChangesAsync(true);
+            _context.Update(entity);
         }
 
         public async Task Complete()
         {
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(true);
         }
        
     }

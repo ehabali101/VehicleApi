@@ -56,15 +56,16 @@ namespace VehiclesApi.Controllers
         public async Task<ActionResult> PutVehicle(string id, [FromBody]VehicleResource vehicle)
         {
             if (id != vehicle.Id)
-            {
                 return BadRequest();
-            }
 
-            await _unitOfWork.UpdateVehicle(_mapper.Map<Vehicle>(vehicle));
-            //await _unitOfWork.Vehicles.UpdateVehicleStatus(id, _mapper.Map<Vehicle>(vehicle));
-            //await _unitOfWork.Complete();
+            var dbVehicle = await _unitOfWork.Vehicles.UpdateVehicleStatus(_mapper.Map<Vehicle>(vehicle));
 
-            //return Ok(_mapper.Map< VehicleResource>(vehicle));
+            if (dbVehicle == null)
+                return NotFound();
+
+            _unitOfWork.Update(dbVehicle);
+            await _unitOfWork.Complete();
+
             return Ok();
         }
 

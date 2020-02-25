@@ -11,5 +11,6 @@ namespace VehiclesApi.Persistence
     {
         DbSet<Vehicle> Vehicles { get; set; }
         DbSet<VehicleOwners> VehicleOwners { get; set; }
+
     }
 }
